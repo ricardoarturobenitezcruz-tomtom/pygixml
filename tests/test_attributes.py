@@ -21,6 +21,14 @@ class TestAttributeMethods:
         self.root = self.doc.first_child()
         self.item = self.root.child("item")
 
+    def test_first_attribute(self):
+        """Test getting the first attribute"""
+        # Tests getting the first attribute from a XMLNode
+        attribute = self.item.first_attribute()
+        assert attribute is not None
+        assert attribute.name == "id"
+        assert attribute.value == "1"
+
     def test_append_attribute(self):
         """Test appending attributes to a node"""
         # Test appending a new attribute
