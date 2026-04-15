@@ -98,8 +98,6 @@ class TestXMLNodeChildren:
         assert elements[0].attribute("id") is not None
         assert elements[0].attribute("id").value == "007"
 
-
-
     def test_from_mem_id_unsafe_matches_find_mem_id(self):
         """from_mem_id_unsafe should produce the same node as find_mem_id"""
         doc = pygixml.parse_string("<root><item>Hello</item></root>")
