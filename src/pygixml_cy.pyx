@@ -867,6 +867,25 @@ cdef class XMLNode:
         cdef xml_node node = self._node.append_child(name_bytes)
         return XMLNode.create_from_cpp(node)
 
+    def prepend_child(self, str name):
+        """Preppend a new child element and return it.
+
+        Args:
+            name (str): Tag name.  Use an empty string to create a text
+                node instead.
+
+        Returns:
+            XMLNode: The newly created child.
+
+        Example::
+
+            >>> root = doc.root
+            >>> root.preppend_child('title').set_value('My Title')
+        """
+        cdef bytes name_bytes = name.encode('utf-8')
+        cdef xml_node node = self._node.prepend_child(name_bytes)
+        return XMLNode.create_from_cpp(node)
+
     def remove_child(self, XMLNode node):
         """Remove a direct child element from this node.
 
